@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "506304420571",
+    "firebase_url": "https://soundplayer-55578.firebaseio.com",
+    "project_id": "soundplayer-55578",
+    "storage_bucket": "soundplayer-55578.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506304420571:android:f42d6126dd4cec87",
+        "android_client_info": {
+          "package_name": "com.sound"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506304420571-c2efor9db19smf1cg8p7mbetgmh5rgg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfq-hqlMi7p2ZXwB0Z-DJmDwDQQaIIdRI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
