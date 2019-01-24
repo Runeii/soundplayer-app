@@ -3,6 +3,8 @@ package com.sound;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.guichaguri.trackplayer.TrackPlayer;
+import io.invertase.firebase.RNFirebasePackage;
 
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
@@ -27,6 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new TrackPlayer(),
+            new RNFirebasePackage(),
             new RNFirebasePackage(),
             new RNFirebaseFirestorePackage()
       );

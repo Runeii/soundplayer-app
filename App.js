@@ -7,24 +7,46 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import firebase from 'react-native-firebase'
 import Library from './components/Library'
-import Player from './components/Player'
+import Drawer from './components/Drawer'
+import Player from 'sound/player.js'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  constructor () {
+   super()
+   this.ref = firebase.firestore().collection('tracks')
+   this.ao = new Player
+   this.unsubscribe = null
+   this.state = {
+     tracks: [],
+     loading: true
+   }
+  }
+  componentDidMount() {
+    this.unsubscribe = this.ref.onSnapshot(this._onCollectionUpdate)
+  }
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+  _onCollectionUpdate = (querySnapshot) => {
+    const tracks = [];
+    querySnapshot.forEach((doc) => {
+      const { name } = doc.data();
+      tracks.push({ key: doc.id, name });
+    })
+    this.setState({ 
+      tracks,
+      loading: false,
+    })
+  }
   render() {
+    if (this.state.loading) return <Text style={styles.loading}>Loading</Text>
     return (
       <View style={styles.container}>
-        <Library />
-        <Player />
+        <Library ao={this.ao} tracks={this.state.tracks} />
+        <Drawer ao={this.ao} />
       </View>
     );
   }
