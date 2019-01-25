@@ -33,9 +33,15 @@ export default class App extends Component {
   _onCollectionUpdate = (querySnapshot) => {
     const tracks = [];
     querySnapshot.forEach((doc) => {
-      const { name } = doc.data();
-      tracks.push({ key: doc.id, name });
+      const { uuid, name, artist, album } = doc.data();
+      tracks.push({
+        key: uuid,
+        title: name,
+        artist: artist,
+        album: album
+      });
     })
+    console.log(tracks)
     this.setState({ 
       tracks,
       loading: false,

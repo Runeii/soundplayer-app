@@ -31,7 +31,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new TrackPlayer(),
             new RNFirebasePackage(),
-            new RNFirebasePackage(),
             new RNFirebaseFirestorePackage()
       );
     }

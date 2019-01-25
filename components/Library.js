@@ -16,7 +16,7 @@ class Library extends Component {
   render () {
     return <View>
       <FlatList style={styles.list}data={this.state.tracks} renderItem={({item}) => {
-        return <Text onPress={() => this.sendToPlayer(item)}>{item.name}</Text>} 
+        return <Text onPress={() => this.sendToPlayer(item)}>{item.title}</Text>} 
       }/>
       </View>
   }
